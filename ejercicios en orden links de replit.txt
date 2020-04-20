@@ -1,0 +1,5 @@
+ejercicios:
+3(b)https://repl.it/@JavierAlvarez2/vigenereclases
+3(c)https://repl.it/@JavierAlvarez2/vigenere-3c
+3(e)https://repl.it/@JavierAlvarez2/vigenere-3E
+3(g)https://repl.it/@JavierAlvarez2/vigenere3f
