@@ -31,6 +31,7 @@ void cifrado::cifrar()
   string alfabeto;
   string espacio(" ");
   ifstream archivo;
+  fstream Texto("respuesta.txt");
   int j=0,u=0,F=0,c=0,q=0;
   if(x==1)
   {
@@ -43,7 +44,7 @@ void cifrado::cifrar()
   }
   else if(x==2)
   {
-    archivo.open("alfabetoWord.txt",ios::in);
+    archivo.open("alfabetoMIS.txt",ios::in);
     while(!archivo.eof())
       {
         getline(archivo,alfabeto);
@@ -52,6 +53,12 @@ void cifrado::cifrar()
   }
   else if(x==3)
   {
+    archivo.open("alfabetoWord.txt",ios::in);
+    while(!archivo.eof())
+      {
+        getline(archivo,alfabeto);
+      }
+    archivo.close();
   }
   int b=0;
   while(m.length()<n.length())//completar la clave
@@ -68,38 +75,34 @@ void cifrado::cifrar()
       {
         F=k;
         u=k;
-        cout<<"EL VALOR Dela respuesta"<<k<<k<<endl;
       }
       else if(m[i]==alfabeto[k] && n[i]!=alfabeto[k])
       {
         F=k;
-        cout<<"EL VALOR Dela respuesta"<<k<<endl;
       }
       else if(n[i]==alfabeto[k] && m[i]!=alfabeto[k])
       {
         u=k;
-        cout<<"EL VALOR Del mensaje"<<k<<endl;
       }
     }
     c=F+u;
     if(alfabeto.length()<=c)
     {
       c=c-alfabeto.length();
-      cout<<"ENTRO"<<endl;
     }
-    cout<<alfabeto.length()<<endl;
-    cout<<c<<endl;
-    cout<<i<<endl;
     cout<<alfabeto[c]<<endl;
     sifrado=sifrado+alfabeto[c];
   }
   cout<<sifrado<<endl;
+  Texto<<"cifrado :"<<sifrado<<endl;
+  Texto.close();
 }
 void cifrado::decifrar()
 {
   string alfabeto;
   string espacio(" ");
   ifstream archivo;
+  fstream Texto("respuesta.txt");
   int j=0,u=0,F=0,c=0,q=0;
   if(x==1)
   {
@@ -142,17 +145,14 @@ void cifrado::decifrar()
       {
         F=k;
         u=k;
-        cout<<"EL VALOR Dela respuesta"<<k<<k<<endl;
       }
       else if(m[i]==alfabeto[k] && n[i]!=alfabeto[k])
       {
         F=k;
-        cout<<"EL VALOR Dela respuesta"<<k<<endl;
       }
       else if(n[i]==alfabeto[k] && m[i]!=alfabeto[k])
       {
         u=k;
-        cout<<"EL VALOR Del mensaje"<<k<<endl;
       }
     }
     c=u-F;
@@ -163,4 +163,6 @@ void cifrado::decifrar()
     sifrado=sifrado+alfabeto[c];
   }
   cout<<sifrado<<endl;
+  Texto<<"cifrado :"<<sifrado<<endl;
+  Texto.close();
 }
